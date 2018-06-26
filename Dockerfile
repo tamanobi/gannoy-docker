@@ -16,5 +16,5 @@ RUN go get github.com/monochromegane/gannoy/ && \
     go get golang.org/x/net/netutil
 RUN go build -o /usr/local/bin/gannoy-db github.com/monochromegane/gannoy/cmd/gannoy-db/main.go
 RUN go build -o /usr/local/bin/gannoy github.com/monochromegane/gannoy/cmd/gannoy/main.go
-CMD gannoy create -d $DIM -K $K -p /data table
-CMD gannoy-db -d /data
+ADD setup.sh /gannoy/src/
+CMD bash ./setup.sh
