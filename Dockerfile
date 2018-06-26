@@ -5,7 +5,6 @@ ENV DIM=512
 ENV K=1024
 WORKDIR /gannoy/src/
 RUN mkdir /data
-RUN echo "abc" > /data/temp.txt
 RUN go get github.com/monochromegane/gannoy/ && \
     go get github.com/jessevdk/go-flags && \
     go get github.com/labstack/echo && \
@@ -17,5 +16,5 @@ RUN go get github.com/monochromegane/gannoy/ && \
     go get golang.org/x/net/netutil
 RUN go build -o /usr/local/bin/gannoy-db github.com/monochromegane/gannoy/cmd/gannoy-db/main.go
 RUN go build -o /usr/local/bin/gannoy github.com/monochromegane/gannoy/cmd/gannoy/main.go
-RUN gannoy create -d $DIM -K $K -p /data table
+CMD gannoy create -d $DIM -K $K -p /data table
 CMD gannoy-db -d /data
