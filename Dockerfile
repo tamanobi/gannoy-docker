@@ -1,8 +1,8 @@
 FROM golang:1.10.3-stretch
 
 ENV GOPATH=/gannoy/
-ENV DIM=3
-ENV K=6
+ENV DIM=512
+ENV K=1024
 WORKDIR /gannoy/src/
 RUN mkdir /data
 RUN go get github.com/monochromegane/gannoy/ && \
